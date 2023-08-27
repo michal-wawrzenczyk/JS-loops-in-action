@@ -53,6 +53,10 @@ const displayUserDataBtnElement = document.querySelector("#user-data button");
 function displayUserData() {
   // get access to <ul>
   const ulElement = document.getElementById("output-user-data");
+
+  // remove all exisiting <li> from <ul> before we create and add new one with help of the 'for in' loop.
+  ulElement.textContent = "";
+
   // add list items to the <ul> (one <li> to each property inside the object with data)
   // helper variable (const key/propertyName)
   for (const key in dummyUserData) {
