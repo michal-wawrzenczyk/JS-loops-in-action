@@ -21,3 +21,21 @@ function calculateSum() {
 }
 
 calcSumBtnElement.addEventListener("click", calculateSum);
+
+// Highlight links - "for of" loop
+
+const highlightLinksBtnElement = document.querySelector(
+  "#highlight-links button"
+);
+
+function highlightLinks() {
+  // get access to all anchor elements (querySelectorAll returns an array)
+  const anchorElements = document.querySelectorAll("#highlight-links a");
+
+  // style each anchor by using "for of" loop
+  for (const anchorElement of anchorElements) {
+    anchorElement.classList.add("highlight");
+  }
+}
+
+highlightLinksBtnElement.addEventListener("click", highlightLinks);
