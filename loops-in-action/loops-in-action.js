@@ -72,3 +72,57 @@ function displayUserData() {
 }
 
 displayUserDataBtnElement.addEventListener("click", displayUserData);
+
+// Statistics / Roll the 1-6 dice - "while" loop
+
+const rollDiceBtnElement = document.querySelector("#statistics button");
+
+// function which will roll the dice (select random number)
+function rollDice() {}
+
+// main function after click on the button (output list of rolls)
+function deriveNumberOfDiceRolls() {
+  // get access to the input
+  const targetNumberInputElement =
+    document.getElementById("user-target-number");
+  // get/extract the entered number
+  const enteredNumber = +targetNumberInputElement.value; // value type: number (as converted string)
+  // get access to the <ul> list
+  const diceRollsListElement = document.getElementById("dice-rolls");
+  // clear any <li> from <ul> with every click on a button
+  diceRollsListElement.innerHTML = "";
+
+  // create a variable BEFORE the while loop (let, because it will receive new values)
+  let hasRolledTargetNumber = false;
+  // to keep track of number of rolls
+  let numberOfRolls = 0;
+
+  // keep on rolling numbers until we reach the entered number
+  while (!hasRolledTargetNumber) {
+    // execute the rollDice function and store the number
+    const rolledNumber = rollDice();
+    // check using "if"
+    // if (rolledNumber === enteredNumber) {
+    //   hasRolledTargetNumber = true;
+    // }
+    // or shorter:
+    hasRolledTargetNumber = rolledNumber === enteredNumber; // boolean: true/false
+
+    // change number of rolls by 1
+    // numberOfRolls = numberOfRolls + 1;
+    // shorter:
+    numberOfRolls++;
+  }
+
+  // show some statistics
+  const outputTotalRollsElement = document.getElementById("output-total-rolls");
+  const outputTargetNumberElement = document.getElementById(
+    "output-target-number"
+  );
+
+  // set the textContent
+  outputTargetNumberElement.textContent = enteredNumber.toString();
+  outputTotalRollsElement.textContent = numberOfRolls;
+}
+
+rollDiceBtnElement.addEventListener("click", deriveNumberOfDiceRolls);
