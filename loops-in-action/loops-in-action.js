@@ -101,17 +101,25 @@ function deriveNumberOfDiceRolls() {
   while (!hasRolledTargetNumber) {
     // execute the rollDice function and store the number
     const rolledNumber = rollDice();
+    // change number of rolls by 1
+    // numberOfRolls = numberOfRolls + 1;
+    // shorter:
+    numberOfRolls++;
+
+    // create list element
+    const newRollListItemElement = document.createElement("li");
+    // set textContent for the <li>
+    const listItemOutputText = "Roll" + numberOfRolls + ": " + rolledNumber;
+    newRollListItemElement.textContent = listItemOutputText;
+    // append the <li>
+    diceRollsListElement.append(newRollListItemElement);
+
     // check using "if"
     // if (rolledNumber === enteredNumber) {
     //   hasRolledTargetNumber = true;
     // }
     // or shorter:
     hasRolledTargetNumber = rolledNumber === enteredNumber; // boolean: true/false
-
-    // change number of rolls by 1
-    // numberOfRolls = numberOfRolls + 1;
-    // shorter:
-    numberOfRolls++;
   }
 
   // show some statistics
