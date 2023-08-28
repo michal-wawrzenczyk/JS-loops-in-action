@@ -78,7 +78,10 @@ displayUserDataBtnElement.addEventListener("click", displayUserData);
 const rollDiceBtnElement = document.querySelector("#statistics button");
 
 // function which will roll the dice (select random number)
-function rollDice() {}
+function rollDice() {
+  // return integer between 1 and 6
+  return Math.floor(Math.random() * 6) + 1;
+}
 
 // main function after click on the button (output list of rolls)
 function deriveNumberOfDiceRolls() {
